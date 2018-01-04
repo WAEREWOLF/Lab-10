@@ -1,0 +1,29 @@
+
+#include <stdio.h>
+
+
+int main()
+{
+    FILE *fp;
+    int count = 0;
+    char c;
+
+     fp = fopen("target.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("Could not open file");
+        return 0;
+    }
+
+
+    while((c=fgetc(fp))!=EOF)
+        if (c == '\n')
+            count = count + 1;
+
+    // Close the file
+    fclose(fp);
+    printf("The file  has %d lines\n ", count);
+
+    return 0;
+}

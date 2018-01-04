@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h> // For exit()
+
+void display(char filename)
+{
+    FILE *fptr;
+    char c;
+    fptr=fopen(filename,"r");
+    if(fptr==NULL)
+    {
+        printf("Cannot open file! \n");
+        exit(0);
+    }
+
+    while((c=fgetc(fptr))!=EOF)
+        printf("%c", c);
+
+    fclose(fptr);
+}
+
+int main()
+{
+ FILE *fp;
+      char ch;
+      fp = fopen("source.txt", "r");
+
+    display(fp);
+
+    return 0;
+}
